@@ -1,0 +1,48 @@
+i.fa.fa-shopping-cart {
+    color: orangered;
+    font-size: 33px;
+}
+img#logo {
+    position: absolute;
+    top: -44px;
+    border-radius: 114px;
+}
+
+span#logoheader {
+    color: #585CA7;
+}
+a#header {
+    color: #e7663f;
+}
+input#answer {
+    display: none;
+}
+h6#info {
+    color: red;
+}
+span#passwordvalidation {
+    color: red;
+}
+.register-but input[type="submit"]{
+	outline: none;
+    color: #fff;
+    font-size: 1em;
+    padding: 13px 0;
+    width: 15.68%;
+    background:#e7663f;
+    border: none;
+	text-transform: uppercase;
+    transition: .5s all;
+    -webkit-transition: .5s all;
+    -moz-transition: .5s all;
+    -o-transition: .5s all;
+    -ms-transition: .5s all;
+}
+span#passwordvalidation {
+    color: red;
+    font-size: 11px;
+    display: none;
+}
+span#error {
+    color: red;
+}
