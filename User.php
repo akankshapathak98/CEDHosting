@@ -1,5 +1,5 @@
 <?php 
-include_once('config.php');
+include_once('admin/config.php');
 class User{
     public $db;
     function login($password,$email){
