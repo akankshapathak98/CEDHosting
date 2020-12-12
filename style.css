@@ -46,3 +46,13 @@ span#passwordvalidation {
 span#error {
     color: red;
 }
+span#alerterror {
+    color: red;
+}
+
+span#success{
+    color: green;
+}
+span#alertsuccess {
+    color: red;
+}

@@ -67,9 +67,9 @@ if(select=='Select Security question'){
 else{
    $('#answer').show();
 }
-})
+});
 $('#password').focus(function(){
    $('#passwordvalidation').show().fadeOut(7000);
-})
-   
+});
+  
 })

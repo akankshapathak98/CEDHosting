@@ -17,144 +17,133 @@
                 <span class="nav-link-text">Dashboard</span>
               </a>
             </li>
-        </ul>
-            <hr class="my-3">
-            <h6 class="navbar-heading p-0 text-muted">
-                <span class="docs-normal">Products</span>
-            </h6>
-            <ul class="navbar-nav">
+        
+            <!-- <hr class="my-3"> -->
+            <li class="nav-item">
+              <a class="nav-link"   href="#page" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle abc">
+                <i class="ni ni-planet text-orange"></i>
+                <span class="nav-link-text">Products</span>
+              </a>
+            <ul class="collapse list-unstyled" id="page">
+            <li  class="nav-item">
+            <a class="nav-link" href="category.php">Create category</a>
+            </li>
+            <li class="nav-item" >
+            <a class="nav-link" href="Add_New_Product.php">Add Product</a>
+            </li>
+            <li class="nav-item">
+            <a  class="nav-link" href="view_product.php">View Products</a>
+            </li>
+            <li class="nav-item">
+            <a  class="nav-link" href="userallrides.php">Create New Offers</a>
+            </li>
+            </ul>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link"   href="#page2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle abc">
+            <i class="ni ni-pin-3 text-primary"></i>
+            <span class="docs-normal">Orders</span>
+            </a>
+            <ul class="collapse list-unstyled"  id="page2">
                 <li class="nav-item">
-                <a class="nav-link" href="category.php">
-                    <i class="ni ni-planet text-orange"></i>
-                    <span class="nav-link-text">Create Category</span>
-                </a>
+                <a class="nav-link" href="examples/icons.html">Pending Orders</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="Add_New_Product.php">
-                    <i class="ni ni-pin-3 text-primary"></i>
-                    <span class="nav-link-text">Add Product</span>
-                </a>
+                <a class="nav-link" href="examples/map.html">Completed Orders</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="examples/profile.html">
-                    <i class="ni ni-single-02 text-yellow"></i>
-                    <span class="nav-link-text">View Products</span>
-                </a>
+                <a class="nav-link" href="examples/profile.html">Cancelled Orders</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="examples/tables.html">
-                    <i class="ni ni-bullet-list-67 text-default"></i>
-                    <span class="nav-link-text">Create New Offers</span>
-                </a>
-                </li>
-             </ul>
-             <hr class="my-3">
-            <h6 class="navbar-heading p-0 text-muted">
-                <span class="docs-normal">Orders</span>
-            </h6>
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                <a class="nav-link" href="examples/icons.html">
-                    <i class="ni ni-planet text-orange"></i>
-                    <span class="nav-link-text">Pending Orders</span>
-                </a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="examples/map.html">
-                    <i class="ni ni-pin-3 text-primary"></i>
-                    <span class="nav-link-text">Completed Orders</span>
-                </a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="examples/profile.html">
-                    <i class="ni ni-single-02 text-yellow"></i>
-                    <span class="nav-link-text">Cancelled Orders</span>
-                </a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="examples/tables.html">
-                    <i class="ni ni-bullet-list-67 text-default"></i>
-                    <span class="nav-link-text">Generate Invoice</span>
+                <a class="nav-link" href="examples/tables.html">Generate Invoice
                 </a>
                 </li>
              </ul>
-             <hr class="my-3">
-            <h6 class="navbar-heading p-0 text-muted">
+             </li>
+             <li class="nav-item">
+            <a class="nav-link"   href="#page3" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle abc">
+            <i class="ni ni-pin-3 text-primary"></i>
                 <span class="docs-normal">Services</span>
-            </h6>
-            <ul class="navbar-nav">
+                </a>
+            <ul class="collapse list-unstyled"  id="page3">
                 <li class="nav-item">
                 <a class="nav-link" href="examples/icons.html">
-                    <i class="ni ni-planet text-orange"></i>
+                   
                     <span class="nav-link-text">Active Services</span>
                 </a>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link" href="examples/map.html">
-                    <i class="ni ni-pin-3 text-primary"></i>
+                    
                     <span class="nav-link-text">Expired Services</span>
                 </a>
                 </li>
              </ul>
-             <hr class="my-3">
-            <h6 class="navbar-heading p-0 text-muted">
+             </li>
+             <li class="nav-item">
+            <a class="nav-link"   href="#page4" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle abc">
+            <i class="ni ni-pin-3 text-primary"></i>
                 <span class="docs-normal">Users</span>
-            </h6>
-            <ul class="navbar-nav">
+           </a>
+            <ul class="collapse list-unstyled"  id="page4">
                 <li class="nav-item">
                 <a class="nav-link" href="examples/icons.html">
-                    <i class="ni ni-planet text-orange"></i>
+                    
                     <span class="nav-link-text">All User Lists</span>
                 </a>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link" href="examples/map.html">
-                    <i class="ni ni-pin-3 text-primary"></i>
+                   
                     <span class="nav-link-text">Create New User</span>
                 </a>
                 </li>
              </ul>
-             <hr class="my-3">
-            <h6 class="navbar-heading p-0 text-muted">
-                <span class="docs-normal">Blog</span>
-            </h6>
-            <ul class="navbar-nav">
+             </li>
+             <li class="nav-item">
+            <a class="nav-link"   href="#page5" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle abc">
+            <i class="ni ni-pin-3 text-primary"></i>
+                <span class="docs-normal">Blog</span></a>
+            <ul class="collapse list-unstyled"  id="page5">
                 <li class="nav-item">
                 <a class="nav-link" href="examples/icons.html">
-                    <i class="ni ni-planet text-orange"></i>
+                    
                     <span class="nav-link-text">Add New Blog</span>
                 </a>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link" href="examples/map.html">
-                    <i class="ni ni-pin-3 text-primary"></i>
+                    
                     <span class="nav-link-text"> View all Blogs</span>
                 </a>
                 </li>
              </ul>
-             <hr class="my-3">
-            <h6 class="navbar-heading p-0 text-muted">
+             </li>
+             <li class="nav-item">
+            <a class="nav-link"   href="#page6" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle abc">
+            <i class="ni ni-pin-3 text-primary"></i>
                 <span class="docs-normal">Accounts</span>
-            </h6>
-            <ul class="navbar-nav">
+            </a>
+            <ul class="collapse list-unstyled"  id="page6">
                 <li class="nav-item">
                 <a class="nav-link" href="examples/icons.html">
-                    <i class="ni ni-planet text-orange"></i>
+                   
                     <span class="nav-link-text">Update Company Info</span>
                 </a>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link" href="examples/map.html">
-                    <i class="ni ni-pin-3 text-primary"></i>
+                    
                     <span class="nav-link-text"> Change Security Ques</span>
                 </a>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link" href="examples/map.html">
-                    <i class="ni ni-pin-3 text-primary"></i>
+                   
                     <span class="nav-link-text"> Change Password</span>
                 </a>
                 </li>
+             </ul>
              </ul>
            
           <!-- Divider -->

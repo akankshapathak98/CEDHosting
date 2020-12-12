@@ -41,5 +41,15 @@ class User{
             return false;
         }
     }
+    function makeActive($verification){
+        $querry=("UPDATE `tbl_user` SET `active`='1' ,`email_approved`='1' WHERE  `email`='$verification' ");
+        $this->db = new dbConnect();
+        return $data=$this->db->update($querry);
+    }
+    function makeMobileActive($verification){
+        $querry=("UPDATE `tbl_user` SET `active`='1' ,`mobile`='1' WHERE  `mobile`='$verification' ");
+        $this->db = new dbConnect();
+        return $data=$this->db->update($querry);
+    }
 }
 ?>

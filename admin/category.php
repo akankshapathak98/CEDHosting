@@ -333,6 +333,9 @@ $data=$product_category->getParent();
           <div class="modal-dialog modal- modal-dialog-centered modal-sm" role="document">
             <div class="modal-content">
               <div class="modal-body p-0">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
                 <div class="card bg-secondary border-0 mb-0">
                   <div class="card-header bg-transparent pb-5">
                     

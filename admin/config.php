@@ -35,5 +35,11 @@ public function update($querry) {
   return  $this->res;
      
 }
+public function get_last_id($sql){
+  if ($this->conn->query($sql) === TRUE) {
+    $last_id = $this->conn->insert_id;
+  }
+  return $last_id;
+}
 
 }

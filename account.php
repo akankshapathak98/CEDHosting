@@ -6,9 +6,7 @@ include_once('admin/Product.php');
 $subcategory=new Product();
 $data=$subcategory->show_category();
 $user=new User();
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-require '/home/cedcoss/vendor/autoload.php';
+
 
 if(isset($_POST['register'])){
 	$email=$_POST['email'];
@@ -24,79 +22,7 @@ if(isset($_POST['register'])){
 	}
 	else{
 		$data=$user->register($email,$name,$mobile,$password,$question,$answer);
-		// echo"<script>alert('registration successfully');</script>";
-		$otp = rand(1000,9999);
-    $_SESSION['otp']=$otp;
-    $mail = new PHPMailer();
-    try {
-        $mail->isSMTP(true);
-        $mail->Host = 'smtp.gmail.com';
-        $mail->SMTPAuth = true;
-        $mail->Username = 'cedcossarjun1023@gmail.com';
-        $mail->Password = 'Cedcoss@1023';
-        $mail->SMTPSecure = 'tls';
-        $mail->Port = 587;
-
-        $mail->setfrom('cedcossarjun1023@gmail.com', 'CedHosting');
-        $mail->addAddress($email);
-        $mail->addAddress($email, $name);
-
-        $mail->isHTML(true);
-        $mail->Subject = 'Account Verification';
-        $mail->Body = 'Hi User,Here is your otp for account verification: '.$otp;
-        $mail->AltBody = 'Body in plain text for non-HTML mail clients';
-        $mail->send();
-        // header('location: verification.php?email=' . $email);
-    } catch (Exception $e) {
-        echo "Mailer Error: " . $mail->ErrorInfo;
-    }
-
-
-	// mobile otp 
-
-	$fields = array(
-		"sender_id" => "FSTSMS",
-		"message" => "This is Test message" . $otp,
-		"language" => "english",
-		"route" => "p",
-		"numbers" => "$mobile",
-	);
-	
-	$curl = curl_init();
-	
-	curl_setopt_array($curl, array(
-	  CURLOPT_URL => "https://www.fast2sms.com/dev/bulk",
-	  CURLOPT_RETURNTRANSFER => true,
-	  CURLOPT_ENCODING => "",
-	  CURLOPT_MAXREDIRS => 10,
-	  CURLOPT_TIMEOUT => 30,
-	  CURLOPT_SSL_VERIFYHOST => 0,
-	  CURLOPT_SSL_VERIFYPEER => 0,
-	  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-	  CURLOPT_CUSTOMREQUEST => "POST",
-	  CURLOPT_POSTFIELDS => json_encode($fields),
-	  CURLOPT_HTTPHEADER => array(
-		"authorization: kb1YNOlwIxFVvrMsySQD6etE3JARPpu87fZj9Gz0g5m4cdTLiqV8f9WTbqFodk3PIOpXMDRlzmKLCE10",
-		"accept: */*",
-		"cache-control: no-cache",
-		"content-type: application/json"
-	  ),
-	));
-	
-	$response = curl_exec($curl);
-	$err = curl_error($curl);
-	
-	curl_close($curl);
-	
-	if ($err) {
-	  echo "cURL Error #:" . $err;
-	} else {
-	  echo $response;
-	}
-
-
-
-
+		header('Location:verification.php?email='.$email.'&name='.$name.'&mobile='.$mobile);
 	}
 }
 ?>

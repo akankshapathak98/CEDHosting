@@ -1,4 +1,7 @@
-<?php include_once('commonheader.php');?>
+<?php include_once('commonheader.php');
+	include_once('admin/Product.php');
+	$subcategory=new Product();
+	$data=$subcategory->show_category();?>
 <link rel="stylesheet" href="css/swipebox.css">
 			<script src="js/jquery.swipebox.min.js"></script> 
 			    <script type="text/javascript">
