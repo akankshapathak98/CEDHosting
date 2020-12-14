@@ -415,7 +415,7 @@ $data=$product_category->show_category();
                         Enter Monthly Price</label>
                         <span class='requirefield'>*</span>
                         <input  class="form-control " 
-                        placeholder=" Monthly price " id="monthprice" type="number">
+                        placeholder=" Monthly price " id="monthprice" type="text">
                         <div class="invalid-feedback" id='monthfield'>enter valid Monthly price</div>
                         <small>This would be Monthly Plan</small>
                       </div>
@@ -425,7 +425,7 @@ $data=$product_category->show_category();
                         <label class="form-control-label" f
                         or="input-city"> Enter Annual Price </label>
                         <span class='requirefield'>*</span>
-                        <input type="number" id="annualmonth" 
+                        <input type="tex" id="annualmonth" 
                         class="form-control" 
                         placeholder="enter annual price ">
                         <div class="invalid-feedback" id='annualfield'></div>
@@ -524,7 +524,8 @@ $data=$product_category->show_category();
       
     
 <?php 
-  require_once 'footer.php';?>    
+  require_once 'footer.php';?>
+  <script src="validatescript.js"></script>    
   </div>
 </body>
 

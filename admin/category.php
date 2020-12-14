@@ -329,32 +329,32 @@ $data=$product_category->getParent();
         </div>
       </div>
 <div class="col-md-4">
-        <div class="modal fade" id="modal-form" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true">
-          <div class="modal-dialog modal- modal-dialog-centered modal-sm" role="document">
-            <div class="modal-content">
-              <div class="modal-body p-0">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-                <div class="card bg-secondary border-0 mb-0">
-                  <div class="card-header bg-transparent pb-5">
-                    
-                    <div class="btn-wrapper text-center">
-                      
-                    <h1>Edit Category</h1>
-                    </div>
-                  </div>
-                  <div class="card-body px-lg-5 py-lg-5">
-                    <form role="form" id='editform'>
-                    
-                    </form>
-                  </div>
-                </div>
+  <div class="modal fade" id="modal-form" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true">
+    <div class="modal-dialog modal- modal-dialog-centered modal-sm" role="document">
+      <div class="modal-content">
+        <div class="modal-body p-0">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+          </button>
+          <div class="card bg-secondary border-0 mb-0">
+            <div class="card-header bg-transparent pb-5">
+              
+              <div class="btn-wrapper text-center">
+                
+                <h1>Edit Category</h1>
               </div>
+            </div>
+            <div class="card-body px-lg-5 py-lg-5">
+              <form role="form" id='editform'>
+              
+              </form>
             </div>
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</div>
 
 
 
@@ -366,7 +366,7 @@ $data=$product_category->getParent();
               <table class="table align-items-center table-flush cattable">
                 <thead class="thead-light">
                   <tr>
-                    <th scope="col">Category Id</th>
+                    
                     <th scope="col">Parent Id</th>
                     <th scope="col">Category Name</th>
                     <th scope="col">Link</th>

@@ -343,34 +343,41 @@ $data=$product_category->show_category();
 
     <!-- editform -->
     <div class="col-md-4">
-      <div class="modal fade" id="modal-form" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true">
-        <div class="modal-dialog modal- modal-dialog-centered modal-lg" role="document">
-          <div class="modal-content">
-            <div class="modal-body p-0">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">×</span>
-              </button>
-              <div class="card bg-secondary border-0 mb-0">
-                <div class="card-header bg-transparent pb-5">
-                  <div class="btn-wrapper text-center">
-                    <h3 class="mb-0">Create New Product  </h3>
-                  </div>
-                </div>
+  <div class="modal fade" id="modal-form" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true">
+    <div class="modal-dialog modal- modal-dialog-centered modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-body p-0">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+          </button>
+          <div class="card bg-secondary border-0 mb-0">
+            <div class="card-header bg-transparent pb-5">
+              
+              <div class="btn-wrapper text-center">
+                
+                <h1>Edit Category</h1>
               </div>
-              <div class="card-body">
-                <form id="produteditform">
+            </div>
+            <div class="card-body px-lg-5 py-lg-5">
+                
+                <form id="updateproducts">
                 <h6 class="heading-small text-muted mb-4">Enter Product Details</h6>
-              <div class="pl-lg-4">
-                <div class="row">
-                <div class="col-lg-6">
+                <div class="pl-lg-4">
+                  <div class="row">
+                    <div class="col-lg-6">
                       <div class="form-group">
                         <label class="form-control-label" 
                         for="input-username"> Select Product Category</label>
                         <span class='requirefield'>*</span>
                         <div class="input-group mb-3">
                           <select class="custom-select form-select " id="categeoryid">
-                            <option value="0" selected>Please Select</option>
-                            
+                            <option value="0" >Please Select</option>
+                            <?php 
+                             while ($row = mysqli_fetch_array($data)) {
+                             $html.='<option value="'.$row['id'].'">'.$row['prod_name'].'</option>';
+                             }
+                            echo $html;
+                            ?>
                           </select>
                           <div class="invalid-feedback" id='categeoryidfield'> 
                               
@@ -378,132 +385,153 @@ $data=$product_category->show_category();
                         </div>
                       </div>
                     </div>
-               
-                  <div class="col-lg-6">
-                                  <div class="form-group">
-                                <label class="form-control-label" for="input-email">
-                                Enter Product Name</label><span class="requirefield">*</span>
-                                <input type="text" id="productname" class="form-control" 
-                                placeholder="enter product name" >
-                              </div>
-                            </div>
-                          </div>
-                          <div class="row">
-                            <div class="col-lg-6">
-                              <div class="form-group">
-                                <label class="form-control-label"
-                                for="input-first-name">Page URL</label>
-                                <input type="text" id="pageurl" 
-                                class="form-control" placeholder="enter page url"  >
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <hr class="my-4">
-                        <h4 class="heading-small text-muted mb-4">
-                        Product Description</h4>
-                        <div class="pl-lg-4">
-                          <div class="row">
-                            <div class="col-md-4">
-                              <div class="form-group">
-                                <label class="form-control-label" >
-                                Enter Monthly Price</label>
-                                <span class="requirefield">*</span>
-                                <input  class="form-control"
-                                placeholder=" This would be Monthly Plan " id="monthprice" type="number" >
-                              </div>
-                            </div>
-                            <div class="col-lg-4">
-                              <div class="form-group">
-                                <label class="form-control-label" f
-                                or="input-city"> Enter Annual Price </label>
-                                <span class="requirefield">*</span>
-                                <input type="number" id="annualmonth"
-                                class="form-control"
-                                placeholder="This would be Annual Price "  >
-                              </div>
-                            </div>
-                          </div>
-                          <div class="row">
-                            <div class="col-lg-4">
-                              <div class="form-group">
-                                <label class="form-control-label"
-                                for="input-country">SKU</label>
-                                <input type="text" id="sku" 
-                                class="form-control" placeholder="SKU">
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <hr class="my-4">
-                        <!-- Description -->
-                        <h6 class="heading-small text-muted mb-4">Features </h6>
-                        <div class="pl-lg-4">
-                        <div class="row">
-                            <div class="col-md-4">
-                              <div class="form-group">
-                                <label class="form-control-label" >Web Space(in GB)</label>
-                                <span class="requirefield">*</span>
-                                <input  class="form-control" 
-                                placeholder=" Enter 0.5 for 512 MB " id="webspace" type="text" >
-                              </div>
-                            </div>
-                            <div class="col-lg-4">
-                              <div class="form-group">
-                                <label class="form-control-label" for="input-city"> 
-                                Bandwidth (in GB) </label>
-                                <span class="requirefield">*</span>
-                                <input type="text" id="Bandwidth" 
-                                class="form-control" placeholder="Enter 0.5 for 512 MB  " 
-                                >
-                              </div>
-                            </div>
-                          </div>
-                          <div class="row">
-                            <div class="col-md-4">
-                              <div class="form-group">
-                                <label class="form-control-label" >Free Domain</label>
-                                <span class="requirefield">*</span>
-                                <input  class="form-control" id="freedomain"
-                                placeholder=
-                                " Enter 0 if no domain available in this service  " 
-                                 type="text">
-                              </div>
-                            </div>
-                            <div class="col-lg-4">
-                              <div class="form-group">
-                                <label class="form-control-label"
-                                for="input-city">Language/Technology Support</label>
-                                <span class="requirefield">*</span>
-                                <input type="text" id="language_tech" 
-                                class="form-control" 
-                                placeholder="Separate by (,) Ex:PHP, MySQL, MongoDB " value="New York" >
-                              </div>
-                            </div>
-                          </div>
-                          <div class="row">
-                            <div class="col-md-4">
-                              <div class="form-group">
-                                <label class="form-control-label" >Mailbox </label>
-                                <span class="requirefield">*</span>
-                                <input  class="form-control"
-                                placeholder=" Enter Number of mailbox 
-                                will be provided, enter 0 if none  " id="mailbox" type="text" >
-                              </div>
-                            </div>
-                          </div>
-                          <div class="text-center">
-                          <button type="button" id="createproduct"
-                          class="btn btn-primary mt-4">Create Now</button>
-                        </div>
-                        </div>
-                </form>
-              </div>
-            </div>
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-email">
+                        Enter Product Name</label><span class='requirefield'>*</span>
+                        <input type="text" id="productname" class="form-control" 
+                        placeholder="enter product name">
+                        <small>name should be Alpha numeric/ alphabetic,Not only numeric,no any special charecter excet(-)</small>
+                        <div class="invalid-feedback " id='enterfield'></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label class="form-control-label" 
+                        for="input-first-name">Page URL</label>
+                        <input type="text" id="pageurl" 
+                        class="form-control " placeholder="enter page url" >
+                        <div class="invalid-feedback" id='pageurlfield'></div>
+                      </div>
+                    </div>
+                   
+                  </div>
+                </div>
+                <hr class="my-4">
+                <!-- Address -->
+                <h4 class="heading-small text-muted mb-4">
+                Product Description</h4>
+                <div class="pl-lg-4">
+                  <div class="row">
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label class="form-control-label" >
+                        Enter Monthly Price</label>
+                        <span class='requirefield'>*</span>
+                        <input  class="form-control " 
+                        placeholder=" Monthly price " id="monthprice" type="text">
+                        <div class="invalid-feedback" id='monthfield'>enter valid Monthly price</div>
+                        <small>This would be Monthly Plan</small>
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="form-group">
+                        <label class="form-control-label" f
+                        or="input-city"> Enter Annual Price </label>
+                        <span class='requirefield'>*</span>
+                        <input type="text" id="annualmonth" 
+                        class="form-control" 
+                        placeholder="enter annual price ">
+                        <div class="invalid-feedback" id='annualfield'></div>
+                        <small>This would be Annual Price</small>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-4">
+                      <div class="form-group">
+                        <label class="form-control-label " 
+                        for="input-country">SKU</label>
+                        <input type="text" id="sku" 
+                        class="form-control" placeholder="SKU" >
+                        <div class="invalid-feedback" id='skufield'></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <hr class="my-4">
+                <!-- Description -->
+                <h6 class="heading-small text-muted mb-4">Features </h6>
+                <div class="pl-lg-4">
+                <div class="row">
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label class="form-control-label" >Web Space(in GB)</label>
+                        <span class='requirefield'>*</span>
+                        <input  class="form-control " 
+                        placeholder=" Web Space " id="webspace" type="text" maxlength="5">
+                        <div class="invalid-feedback" id='webspacefield'></div>
+                        <small>Enter 0.5 for 512 MB</small>
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-city"> 
+                        Bandwidth (in GB) </label>
+                        <span class='requirefield'>*</span>
+                        <input type="text" id="Bandwidth" 
+                        class="form-control " placeholder=" Bandwidth " maxlength="5">
+                        <div class="invalid-feedback" id='bandwidthfield'> </div>
+                      <small>Enter 0.5 for 512 MB</small>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label class="form-control-label" >Free Domain</label>
+                        <span class='requirefield'>*</span>
+                        <input  class="form-control " id="freedomain"
+                        placeholder=
+                        "Free domain" 
+                         type="text">
+                         <div class="invalid-feedback" id='freedomainfield'></div>
+                         <small>Enter 0 if no domain available in this service</small>
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="form-group">
+                        <label class="form-control-label" 
+                        for="input-city"> Language / Technology Support </label>
+                        <span class='requirefield'>*</span>
+                        <input type="text" id="language_tech" 
+                        class="form-control " 
+                        placeholder="Language / Technology Support  " >
+                        <div class="invalid-feedback" id="language_techfield"></div>
+                        <small>Separate by (,) Ex:PHP, MySQL, MongoDB</small>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label class="form-control-label" >Mailbox </label>
+                        <span class='requirefield'>*</span>
+                        <input  class="form-control " 
+                        placeholder=" Mailbox " id="mailbox" type="text">
+                        <div class="invalid-feedback" id='mailboxfield'> </div>
+                        <small>Enter Number of mailbox will be provided, enter 0 if none</small>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="text-center">
+                  <button type="button" id="updateProduct" data-id=''
+                  class="btn btn-primary mt-4" >Update</button>
+                  <button type="button" class="btn btn-danger mt-4 ml-auto" data-dismiss="modal">Close</button>
+                </div>
+                </div>
+              </form>
+                </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
+</div>
+
+  
 
         <!-- table -->
         <div class="row mt--6">
@@ -513,20 +541,20 @@ $data=$product_category->show_category();
               <table class="table align-items-center table-flush prodtable">
                 <thead class="thead-light">
                   <tr>
-                    <th scope="col">Category Id</th>
-                    <th scope="col">Parent Id</th>
-                    <th scope="col">Category Name</th>
+              
+                    <th scope="col">Parent Name</th>
+                    <th scope="col">Product Name</th>
                     <th scope="col">Link</th>
                     <th scope="col">Status</th>
                     <th scope="col">Date</th>
-                    <th scope="col">Parent Id</th>
-                    <th scope="col">Category Name</th>
-                    <th scope="col">Link</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">Date</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">Date</th>
-                    <th scope="col">Status</th>
+                    <th scope="col">Bandwidth</th>
+                    <th scope="col">freedomain</th>
+                    <th scope="col">language_tech</th>
+                    <th scope="col">mailbox</th>
+                    <th scope="col">webspace</th>
+                    <th scope="col">Monthly Price</th>
+                    <th scope="col">Annual Price</th>
+                    <th scope="col">SKU</th>
                     <th scope="col">Action</th>
                    
                 
@@ -540,9 +568,12 @@ $data=$product_category->show_category();
           </div>
         </div>
       </div>
+      <script src="validateupdate.js"></script>
 <?php 
-  require_once 'footer.php';?>    
+  require_once 'footer.php';
+  ?>    
   </div>
+  
 </body>
 
 </html>
