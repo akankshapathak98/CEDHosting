@@ -22,6 +22,45 @@ class Product{
         $data=$db->select($res);
         return $data;
     }
+    function getcategoryname($id){
+
+        $res= ("select * from `tbl_product` where `id`='$id'");
+        $db = new dbConnect();
+        $data=$db->select($res);
+        return $data;
+    }
+    function getProduct($id){
+        $res= ("SELECT `tbl_product`.*,`tbl_product_description`.* FROM tbl_product JOIN tbl_product_description ON `tbl_product`.`id` = `tbl_product_description`.`prod_id` where `prod_parent_id`='$id'");
+        $db = new dbConnect();
+        $data=$db->select($res);
+        $rowcount=mysqli_num_rows($data);
+        if($rowcount>0){
+        while ($row = mysqli_fetch_array($data)) {
+            $description=json_decode($row['description']);
+            $Bandwidth=$description->{'Bandwidth'};
+            $freedomain=$description->{'freedomain'};
+            $language_tech=$description->{'language_tech'};
+            $mailbox=$description->{'mailbox'};
+            $webspace=$description->{'webspace'};
+            $return_data[]=array(
+                'product_name'=>$row['prod_name'],
+                'html'=>$row['html'],
+                'date'=>$row['prod_launch_date'],
+                'Bandwidth'=>$Bandwidth,
+                'freedomain'=>$freedomain,
+                'language_tech'=>$language_tech,
+                'mailbox'=>$mailbox,
+                'webspace'=>$webspace,
+                'mon_price'=>$row['mon_price'],
+                'annual_price'=>$row['annual_price'],
+                'sku'=>$row['sku']);
+     
+        }   
+        return $return_data;
+    } else {
+        return false;
+    }
+}
     function show_products(){
         $res= ("SELECT `tbl_product`.*,`tbl_product_description`.* FROM tbl_product JOIN tbl_product_description ON `tbl_product`.`id` = `tbl_product_description`.`prod_id`");
         $db = new dbConnect();
@@ -30,12 +69,23 @@ class Product{
     }
     function delete_Sub_Category($id)
     {
-        $querry=("DELETE FROM `tbl_product_description` WHERE `id`='$id'");
+        $res= ("select id from `tbl_product` where   prod_parent_id=$id");
+        $db = new dbConnect();
+        $data=$db->select($res);
+        
+        while ($row = $data->fetch_assoc()) {
+            $prod_id=$row['id'];
+        }
+
+        $querry=("DELETE FROM `tbl_product_description` WHERE `prod_id`='$prod_id'");
         $this->db = new dbConnect();
-        $data=$this->db->delete($querry);
+        $this->db->delete($querry);
+        $querry=("DELETE FROM `tbl_product` WHERE `id`='$prod_id'");
+        $this->db = new dbConnect();
+        $this->db->delete($querry);
         $querry=("DELETE FROM `tbl_product` WHERE `id`='$id'");
         $this->db = new dbConnect();
-        $data=$this->db->delete($querry);
+        $this->db->delete($querry);
         return true;
     }
     function edit_category($id)

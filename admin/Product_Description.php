@@ -24,5 +24,10 @@ class Product_Description{
         $data=$this->db->delete($querry);
        
     }
+    // function getprodid($id){
+    //     $querry=("DELETE FROM `tbl_product_description` WHERE `prod_id`='$id'");
+    //     $this->db = new dbConnect();
+    //     $data=$this->db->delete($querry);
+    // }
 }
 ?>

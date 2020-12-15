@@ -53,7 +53,7 @@ $data=$subcategory->show_category();
 										<div class="linux-prices">
 											<div class="col-md-3 linux-price">
 												<div class="linux-top">
-												<h4>Standard</h4>
+													<h4>Standard</h4>
 												</div>
 												<div class="linux-bottom">
 													<h5>$279 <span class="month">per month</span></h5>

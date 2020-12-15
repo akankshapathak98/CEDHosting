@@ -307,6 +307,7 @@ $data=$product_category->getParent();
                       <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                     </div>
                     <input class="form-control" id="categoryname" placeholder="Category Name" type="text">
+                    <div class="invalid-feedback" id='categoryfield'> </div>
                   </div>
                 </div>
                 <div class="form-group">
@@ -367,7 +368,7 @@ $data=$product_category->getParent();
                 <thead class="thead-light">
                   <tr>
                     
-                    <th scope="col">Parent Id</th>
+                    <th scope="col">Parent Name</th>
                     <th scope="col">Category Name</th>
                     <th scope="col">Link</th>
                     <th scope="col">Status</th>

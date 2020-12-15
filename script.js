@@ -2,8 +2,8 @@ if(window.history.replaceState){
    window.history.replaceState(null,null,window.location.href);
 }
 function validateform(){
-   var mletters =/^(0)?[4-9]{1}[0-9]{9}$/;
-var pletters =/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*?[#?!@$%^&*-])\S{8,16}$/;
+var mletters =/^(0)?[4-9]{1}[0-9]{9}$/;
+var pletters =/^(?!.* )(?=.*\d)(?=.*[A-Z]).{8,15}$/;
 var nletters =/^([a-zA-Z]+\s?)*$/;
 var aletters =/^([a-zA-Z0-9])(?=.*?[#?!@$%^&*-])*$/;
 //var eletters=/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
