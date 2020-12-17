@@ -1,3 +1,6 @@
 span.requirefield {
     color: red;
 }
+.bg-secondary {
+    background-color: none !important;
+}

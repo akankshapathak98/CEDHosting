@@ -17,9 +17,9 @@ require_once 'commonheader.php';
     $subcategoryname=$subcategory->getcategoryname($id);
     
     $product=$subcategory->getProduct($id);
-    echo '<pre>';
-    print_r($product);
-    echo'</pre>';
+    // echo '<pre>';
+    // print_r($product);
+    // echo'</pre>';
     // $subcategory=new Product();
     // $data=$subcategory->show_category();
    ?>
@@ -30,6 +30,7 @@ require_once 'commonheader.php';
                         $(".swipebox").swipebox();
                     });
                 </script>
+                
 <!--script-->
 </head>
 <body>

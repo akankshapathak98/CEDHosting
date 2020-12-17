@@ -7,8 +7,15 @@ if (isset($_POST['action'])) {
     if ($_POST['action']=='insertCategory') {
         $categoryname=$_POST['categoryname'];
         $link=$_POST['link'];
-        $data=$product->insert_category($categoryname, $link);
-        return true;
+        $valid=$product->dublicatecategory($categoryname);
+        if ($valid){
+            $data=$product->insert_category($categoryname, $link);
+            
+        }
+        else{
+            echo 'error';
+        }
+       
     }
     if ($_POST['action']=='delete') {
         $id=$_POST['id'];
@@ -96,7 +103,7 @@ if (isset($_GET['getProduct'])) {
             $available='unavailable';
         }
         $parent_name=$product->getparentname($row['prod_parent_id']);
-        $return_data['data'][]=array($parent_name,$row['prod_name'],$row['html'],$available,$row['prod_launch_date'],'<button type="button" class="btn btn btn-outline-success actioncategory" data-toggle="modal" data-target="#modal-form" data-action="edit" data-id="'.$row['id'].'">Edit</button>
+        $return_data['data'][]=array($parent_name,$row['prod_name'],$row['html'],$available,$row['prod_launch_date'],'<button type="button" class="btn btn btn-outline-success " id="editcategory" data-toggle="modal" data-target="#modal-form" data-action="edit" data-id="'.$row['id'].'">Edit</button>
         <button   data-id="'.$row['id'].'" data-action="delete" class="btn btn-outline-danger actioncategory">Delete</button>');
     }
     print_r(json_encode($return_data));

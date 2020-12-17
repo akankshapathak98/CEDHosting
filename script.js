@@ -3,19 +3,19 @@ if(window.history.replaceState){
 }
 function validateform(){
 var mletters =/^(0)?[4-9]{1}[0-9]{9}$/;
-var pletters =/^(?!.* )(?=.*\d)(?=.*[A-Z]).{8,15}$/;
+var pletters =/^(?!.* )(?=.*\d)(?=.*[A-Z]).{8,16}$/;
 var nletters =/^([a-zA-Z]+\s?)*$/;
 var aletters =/^([a-zA-Z0-9])(?=.*?[#?!@$%^&*-])*$/;
 //var eletters=/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
 var eletters=/^[a-zA-Z0-9.-]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,4}$/
 
-var name=$('#name').val();
-var mobile=$('#mobile').val();
-var password=$('#password').val();
-var confirmPassword=$('#cpassword').val();
-var email=$('#email').val();
-var securityAns=$('#security').val();
-var ans=$('#answer').val();
+var name=($('#name').val()).trim();
+var mobile=($('#mobile').val()).trim();
+var password=($('#password').val()).trim();
+var confirmPassword=($('#cpassword').val()).trim();
+var email=($('#email').val()).trim();
+var securityAns=($('#security').val()).trim();
+var ans=($('#answer').val()).trim();
 if(name=='' || mobile==''|| password==''|| confirmPassword==''|| email==''||securityAns==''){
    alert('Enter all field');
    return false;
@@ -57,7 +57,7 @@ else{
 
 $(document).ready(function(){
     
-    $('#security').change(function(){
+   $('#security').change(function(){
 
 var select=$('#security').val();
 console.log(select);

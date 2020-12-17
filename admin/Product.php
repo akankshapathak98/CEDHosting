@@ -10,14 +10,27 @@ class Product{
     }
     function insert_category($categoryname,$link)
     {
-        $querry=("INSERT INTO `tbl_product` ( `prod_name`, `link`, `prod_available`,`prod_parent_id`,`prod_launch_date`)
+        $querry=("INSERT INTO `tbl_product` ( `prod_name`, `html`, `prod_available`,`prod_parent_id`,`prod_launch_date`)
         VALUES ('$categoryname','$link','1','1',NOW());");
         $db = new dbConnect();
         $db->insert($querry);
         return true;
     }
+    function dublicatecategory($categoryname){
+        $res= ("select * from `tbl_product` where   `prod_name` Like '$categoryname' && `prod_parent_id`=1");
+        $db = new dbConnect();
+        $data=$db->select($res);
+        $rowcount=mysqli_num_rows($data);
+        if($rowcount>0){
+            return false;
+        }
+        else{
+            return true;
+        }
+       
+    }
     function show_category(){
-        $res= ("select * from `tbl_product` where   prod_parent_id=1");
+        $res= ("select * from `tbl_product` where   prod_parent_id=1 && `prod_available`=1");
         $db = new dbConnect();
         $data=$db->select($res);
         return $data;

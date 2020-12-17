@@ -8,7 +8,7 @@ $(document).ready(function(){
   } );
     $('#createcategory').click(function(){
         var categoryname=$('#categoryname').val();
-        var link=$('#link').val();
+          var link=$(".editor").text();
         $.ajax({
             method: "POST",
             url: "admin_interface.php",
@@ -18,104 +18,95 @@ $(document).ready(function(){
                 link:link
             },
             success: function(data) {
+              if(data=='error')
+              {
+                alert('category name alreday exist');
+              }
+              else{
                 window.location.reload();   
+              }
+                
             },
             error: function() {
                 alert("error");
             }
         });
     });
-    $('.cattable').on('click','.actioncategory',function(){
-        var id = $(this).data('id');
-        var action=$(this).data('action');
-        if(action=='edit'){
-            $.ajax({
-                method: "POST",
-                url: "admin_interface.php",
-                data: {
-                    action: "edit",
-                    id: id,
-                },
-                dataType: 'json',
-                success: function(data) {
-                   var html='';
-                   for (var i = 0; i < data.length; i++) {
-                      html+='<div class="form-group">\
-                      <div class="input-group input-group-merge input-group-alternative">\
-                        <div class="input-group-prepend">\
-                          <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>\
-                        </div>\
-                        <input class="form-control" disabled type="Text" value="Hosting">\
-                      </div>\
-                    </div>\
-                    <div class="form-group">\
-                      <div class="input-group input-group-merge input-group-alternative mb-3">\
-                        <div class="input-group-prepend">\
-                          <span class="input-group-text"><i class="ni ni-hat-3"></i></span>\
-                        </div>\
-                        <input class="form-control" id="categoryname" placeholder="Category Name" type="text"  value="'+data[i]['prod_name']+'">\
-                      </div>\
-                    </div>\
-                    <div class="form-group">\
-                      <div class="input-group input-group-merge input-group-alternative mb-3">\
-                        <div class="input-group-prepend">\
-                          <span class="input-group-text"><i class="ni ni-email-83"></i></span>\
-                        </div>\
-                        <input class="form-control" id="link" placeholder="link" type="text"  value="'+ data[i]['html']+'">\
-                      </div>\
-                    </div>\
-                    <div class="form-group">\
-                      <div class="input-group input-group-merge input-group-alternative mb-3">\
-                        <select class="custom-select" id="selectcate">';
-                                if ( data[i]['prod_available']==1) {
-                                    html+='<option selected value="1">Available</option>\
-                                <option value="0">Unavailable</option>';
-                                } else {
-                                    html+='<option value="1">Available</option>\
-                                <option value="0" selected>Unavailable</option>';
-                                }
-                        html+='</select>\
-                      </div>\
-                    </div>\
-                    <div class="text-center">\
-                      <button type="button" id="updateCategory" data-id="'+data[i]['id']+'" class="btn btn-primary mt-4">Update Category</button>\
-                      <button type="button" class="btn btn-danger mt-4 ml-auto" data-dismiss="modal">Close</button>\
-                    </div>'; 
-                            }
-                    $('#editform').html(html);
-                },
-                error: function() {
-                    alert("error");
+    $('.cattable').on('click','#editcategory',function(){
+      var id = $(this).data('id');
+          $.ajax({
+              method: "POST",
+              url: "admin_interface.php",
+              data: {
+                  action: "edit",
+                  id: id,
+              },
+              dataType: 'json',
+              success: function(data) {
+                for (var i = 0; i < data.length; i++) {
+                  $('#editcategoryname').val(data[i]['prod_name']);
+                  $('.editor').text(data[i]['html']);
+                  $('#updateCategory').data('id',data[i]['id']);
+                  $('#selectcate').val(data[i]['prod_available']);
                 }
-            });
-        }
-      else{
-        if (confirm("Are you sure to delete the Sub Category")) {
-            $.ajax({
-                method: "POST",
-                url: "admin_interface.php",
-                data: {
-                    action: "delete",
-                    id: id,
-                },
-                success: function(data) {
-                   
-                        window.location.reload(); 
-                    
-                    
-                },
-                error: function() {
-                    alert("error");
-                }
-            });
-        }
-      }
+              },
+              error: function() {
+                  alert("error");
+              }
+          });
     });
+    // $('.cattable').on('click','#editcategory',function(){
+    //     var id = $(this).data('id');
+    //     var action=$(this).data('action');
+    //     if(action=='edit'){
+    //         $.ajax({
+    //             method: "POST",
+    //             url: "admin_interface.php",
+    //             data: {
+    //                 action: "edit",
+    //                 id: id,
+    //             },
+    //             dataType: 'json',
+    //             success: function(data) {
+    //               for (var i = 0; i < data.length; i++) {
+    //                 alert(data[i]['id']);
+    //                 $('#categoryname').val(data[i]['prod_name']);
+    //                 $('.editor').text(data[i]['html']);
+    //                 $('#updateCategory').data('id',data[i]['id']);
+    //               }
+    //             },
+    //             error: function() {
+    //                 alert("error");
+    //             }
+    //         });
+    //     }
+    //   else{
+    //     if (confirm("Are you sure to delete the Sub Category")) {
+    //         $.ajax({
+    //             method: "POST",
+    //             url: "admin_interface.php",
+    //             data: {
+    //                 action: "delete",
+    //                 id: id,
+    //             },
+    //             success: function(data) {
+                   
+    //                     window.location.reload(); 
+                    
+                    
+    //             },
+    //             error: function() {
+    //                 alert("error");
+    //             }
+    //         });
+    //     }
+    //   }
+    // });
 $('#categoryname').focusout(function(){
   
 
   var categoryname=$('#categoryname').val();
-  var regcategory=/(^([a-zA-Z]+\.+[a-zA-Z0-9]+\s?)+$)|(^([a-zA-Z]+\s?)+$)/;
+  var regcategory=/^([a-zA-Z]+\s?)*([0-9]+\.?)*$/;
   if(categoryname==''){
     $('#createcategory').prop('disabled',true);
     $('#categoryname').addClass('is-invalid');
@@ -132,9 +123,9 @@ $('#categoryname').focusout(function(){
 
 })
     
-    $('.cattable ,#editform').on("click", '#updateCategory', function() {
-        var categoryname = $('#editform #categoryname').val();
-        var link = $('#editform #link').val();
+    $('.cattable , #editform').on("click", '#updateCategory', function() {
+        var categoryname = $('#editcategoryname').val();
+        var link = $('.editor').val();
         var isavail = $('#selectcate').val();
         var id = $(this).data('id');
        

@@ -19,7 +19,7 @@ $('#productname').focusout(function(){
 });
 function validateproductname(){
   var nletters =/(^([a-zA-Z]+\-[0-9]+$))|(^([a-zA-Z])+$)/;
-  var productname=$('#productname').val();
+  var productname=($('#productname').val()).trim();
   if(productname==''){
     $('#updateProduct').prop('disabled',true);
     $('#productname').addClass('is-invalid');
@@ -44,18 +44,12 @@ $('#pageurl').focusout(function(){
   validateurl();
 });
 function validateurl(){
-  var nletters =/^([a-zA-Z]+\s?)*$/;
-  var pageurl=$('#pageurl').val();
+  var pageurl=($('#pageurl').val()).trim();
   if(pageurl==''){
     $('#updateProduct').prop('disabled',true);
     $('#pageurl').addClass('is-invalid');
     $('#pageurlfield').html('<span>enter page url name</span>');
     
-  } 
-  else if(!(pageurl.match(nletters))){
-    $('#updateProduct').prop('disabled',true);
-    $('#pageurl').addClass('is-invalid');
-    $('#pageurlfield').html('<span>enter valid page url</span>');
   }
   else{
     $('#pageurl').removeClass('is-invalid');
@@ -67,8 +61,8 @@ $('#monthprice').focusout(function(){
   validatemonthprice();
 });
 function validatemonthprice(){
-  var nletters =/^([0-9]+\.[0-9]+$)|(^([0-9])+$)/
-  var pageurl=$('#monthprice').val();
+  var nletters =/^([0-9]+\.[0-9]+$)|(^([0-9])+$)/;
+  var pageurl=($('#monthprice').val()).trim();
   if(pageurl==''){
     $('#updateProduct').prop('disabled',true);
     $('#monthprice').addClass('is-invalid');
@@ -93,7 +87,7 @@ $('#annualmonth').focusout(function(){
 });
 function validateannual(){
   var nletters =/^([0-9]+\.[0-9]+$)|(^([0-9])+$)/;
-  var pageurl=$('#annualmonth').val();
+  var pageurl=($('#annualmonth').val()).trim();
   if(pageurl==''){
     $('#updateProduct').prop('disabled',true);
     $('#annualmonth').addClass('is-invalid');
@@ -118,8 +112,8 @@ $('#sku').focusout(function(){
   validatesku();
 });
 function validatesku(){
-  var nletters =/^(([a-zA-Z0-9-#?]+)([a-zA-Z0-9]+))|(([a-zA-Z0-9-#?]+)([a-zA-Z0-9]+)([-#?]))+$/ ;
-  var sku=$('#sku').val();
+  var nletters =/^(?![!@#$%^&*()_+=-`~?|]*$)[a-zA-Z0-9-#]+$/ ;
+  var sku=($('#sku').val()).trim();
   if(sku==''){
     $('#updateProduct').prop('disabled',true);
     $('#sku').addClass('is-invalid');
@@ -144,7 +138,7 @@ $('#Bandwidth').focusout(function(){
 });
 function validatebandwidth(){
   var nletters =/^([0-9]+\.[0-9]+$)|(^([0-9])+$)/;
-  var Bandwidth=$('#Bandwidth').val();
+  var Bandwidth=($('#Bandwidth').val()).trim();
   if(Bandwidth==''){
     $('#updateProduct').prop('disabled',true);
     $('#Bandwidth').addClass('is-invalid');
@@ -170,7 +164,7 @@ $('#freedomain').focusout(function(){
 });
 function validatefreedomain(){
   var nletters =/(^([a-zA-Z])+$)|(([0-9])+$)/;
-  var freedomain=$('#freedomain').val();
+  var freedomain=($('#freedomain').val()).trim();
   if(freedomain==''){
     $('#updateProduct').prop('disabled',true);
     $('#freedomain').addClass('is-invalid');
@@ -194,14 +188,12 @@ $('#language_tech').focusout(function(){
   validatelanguage();
 }); 
 function validatelanguage(){
-  var nletters = /(^([a-zA-Z]+[0-9]+\,[a-zA-Z]+[0-9]+$))|(^([a-zA-Z]+[0-9]+\,[a-zA-Z]+$))|(^([a-zA-Z]+\,[a-zA-Z]+[0-9]+$))|(^([a-zA-Z]+\,[a-zA-Z]+$))|(^([a-zA-Z])+$)/;
-  var language_tech=$('#language_tech').val();
+  var nletters = /^((?![0-9]+$)[a-zA-Z0-9]+\,?\s?)+$/;
+  var language_tech=($('#language_tech').val()).trim();
   if(language_tech==''){
     $('#updateProduct').prop('disabled',true);
     $('#language_tech').addClass('is-invalid');
     $('#language_techfield').html('<span>language/technology Field is required</span>');
-    
-    
   } 
   else if(!(language_tech.match(nletters))){
     $('#updateProduct').prop('disabled',true);
@@ -221,7 +213,7 @@ $('#mailbox').focusout(function(){
 function validatemailbox(){
   var nletters =/(^([0-9])+$)/;
   
-  var mailbox=$('#mailbox').val();
+  var mailbox=($('#mailbox').val()).trim();
   if(mailbox==''){
     $('#updateProduct').prop('disabled',true);
     $('#mailbox').addClass('is-invalid');
@@ -246,7 +238,7 @@ $('#webspace').focusout(function(){
 }); 
 function validatewebspace(){
   var nletters =/^([0-9]+\.[0-9]+$)|(^([0-9])+$)/;
-  var webspace=$('#webspace').val();
+  var webspace=($('#webspace').val()).trim();
   if(webspace==''){
     $('#updateProduct').prop('disabled',true);
     $('#webspace').addClass('is-invalid');

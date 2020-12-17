@@ -310,12 +310,12 @@ $data=$product_category->getParent();
                     <div class="invalid-feedback" id='categoryfield'> </div>
                   </div>
                 </div>
+                
                 <div class="form-group">
                   <div class="input-group input-group-merge input-group-alternative mb-3">
                     <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                     </div>
-                    <input class="form-control" id="link" placeholder="link" type="text">
+                        <textarea class="form-control form-group editor"></textarea>
                   </div>
                 </div>
                 
@@ -347,7 +347,41 @@ $data=$product_category->getParent();
             </div>
             <div class="card-body px-lg-5 py-lg-5">
               <form role="form" id='editform'>
-              
+              <div class="form-group">
+                      <div class="input-group input-group-merge input-group-alternative">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                        </div>
+                        <input class="form-control" disabled type="Text" value="Hosting">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="input-group input-group-merge input-group-alternative mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                        </div>
+                        <input class="form-control" id="editcategoryname" placeholder="Category Name" type="text" >
+                      </div>
+                    </div>
+                    <div class="form-group">
+                    <div class="input-group input-group-merge input-group-alternative mb-3">
+                      <div class="input-group-prepend">
+                      </div>
+                          <textarea class="form-control form-group editor"  ></textarea>
+                    </div>
+                  </div>
+                    <div class="form-group">
+                      <div class="input-group input-group-merge input-group-alternative mb-3">
+                        <select class="custom-select" id="selectcate">
+                          <option value="1">Available</option>
+                          <option value="0">Unavailable</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="text-center">
+                      <button type="button" id="updateCategory" data-id="" class="btn btn-primary mt-4">Update Category</button>
+                      <button type="button" class="btn btn-danger mt-4 ml-auto" data-dismiss="modal">Close</button>
+                    </div>
               </form>
             </div>
           </div>
